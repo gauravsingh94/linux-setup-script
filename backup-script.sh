@@ -273,6 +273,69 @@ echo "Preload is set up and running."
 
 
 
+############################ Removing the Repository created by ohmyzsh and nvm #########
+
+# Define the files and directories to remove
+echo "Deleting Repository Created by ohmyzsh and nvm."
+files_to_remove=(
+  "$HOME/.oh-my-zsh"
+  "$HOME/.nvm"
+)
+
+# Iterate through the array and remove each file/directory
+for item in "${files_to_remove[@]}"; do
+  if [ -e "$item" ]; then
+    if [ -d "$item" ]; then
+      echo "Removing directory: $item"
+      rm -rf "$item"
+    elif [ -f "$item" ]; then
+      echo "Removing file: $item"
+      rm "$item"
+    fi
+  else
+    echo "$item does not exist."
+  fi
+done
+
+echo "Removal process completed."
+
+################################## CPU Freq ###########################
+
+#!/bin/bash
+
+# Step 1
+echo "Step 1: Cloning auto-cpufreq repository and installing..."
+git clone https://github.com/AdnanHodzic/auto-cpufreq.git
+cd auto-cpufreq && sudo ./auto-cpufreq-installer
+
+# Step 2
+echo "Step 2: Checking auto-cpufreq version..."
+auto-cpufreq --version
+
+# Step 3
+echo "Step 3: Displaying auto-cpufreq help..."
+auto-cpufreq --help
+
+# Step 4
+echo "Step 4: Installing auto-cpufreq..."
+sudo auto-cpufreq --install
+
+
+########################### Installing the MS Fonts #################################
+
+#!/bin/bash
+
+# Step 1: Install required packages
+echo "Installing The Microsoft Fonts."
+echo "Step 1: Installing required packages..."
+sudo dnf install curl cabextract xorg-x11-font-utils fontconfig
+
+# Step 2: Install Microsoft TrueType core fonts
+echo "Step 2: Installing Microsoft TrueType core fonts..."
+sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+
+echo "Script is completed enjoy you have saved so much time."
+
 
 
 
