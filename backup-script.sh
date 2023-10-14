@@ -67,6 +67,7 @@ flatpak_apps=(
   "com.getpostman.Postman"
   "org.onlyoffice.desktopeditors"
   "com.github.tchx84.Flatseal"
+  "com.github.jeromerobert.pdfarranger"
 )
 
 # Iterate through the list and install each application
