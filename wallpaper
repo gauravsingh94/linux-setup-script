@@ -1,0 +1,4 @@
+--2023-11-23 20:22:23--  ftp://blob/https://www.wallpaperflare.com/545da1b7-b9c4-4406-bd2d-c613f326fbfd
+           => ‘545da1b7-b9c4-4406-bd2d-c613f326fbfd’
+Resolving blob (blob)... failed: Name or service not known.
+wget: unable to resolve host address ‘blob’

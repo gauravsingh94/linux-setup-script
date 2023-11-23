@@ -60,7 +60,6 @@ flatpak_apps=(
   "com.discordapp.Discord"
   "com.todoist.Todoist"
   "com.spotify.Client"
-  "com.github.PintaProject.Pinta"
   "org.videolan.VLC"
   "com.github.tchx84.Flatseal"
   "us.zoom.Zoom"
@@ -69,6 +68,12 @@ flatpak_apps=(
   "com.github.tchx84.Flatseal"
   "com.github.jeromerobert.pdfarranger"
 )
+
+################################# Installing Gnome Tweaks ###################################
+echo "Installing GNOME Tweaks..."
+sudo dnf install gnome-tweaks
+
+echo "GNOME Tweaks installation complete."
 
 # Iterate through the list and install each application
 for app in "${flatpak_apps[@]}"; do
@@ -302,7 +307,6 @@ echo "Removal process completed."
 
 ################################## CPU Freq ###########################
 
-#!/bin/bash
 
 # Step 1
 echo "Step 1: Cloning auto-cpufreq repository and installing..."
@@ -324,7 +328,6 @@ sudo auto-cpufreq --install
 
 ########################### Installing the MS Fonts #################################
 
-#!/bin/bash
 
 # Step 1: Install required packages
 echo "Installing The Microsoft Fonts."
@@ -336,6 +339,21 @@ echo "Step 2: Installing Microsoft TrueType core fonts..."
 sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 
 echo "Script is completed enjoy you have saved so much time."
+
+
+############################# Video Codecs Setups #######################################
+
+
+echo "Started to setup video codecs."
+echo "Installing GStreamer plugins..."
+sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
+
+echo "Upgrading Multimedia group with optional packages..."
+sudo dnf group upgrade --with-optional Multimedia
+
+echo "Media Codecs installed"
+
+
 
 
 
